@@ -1,0 +1,45 @@
+@startuml
+class Punto {
+  - coordenadaX: Float
+  - coordenadaY: Float
+  + obtenerCoordenadaX(): Float
+  + obtenerCoordenadaY(): Float
+}
+
+class Poligono {
+  - puntos: List<Punto>
+  + agregarPunto(nuevoPunto: Punto): Void
+  + obtenerPuntos(): List<Punto>
+
+}
+
+class Punto1 {
+  - coordenadaX = 0.0
+  - coordenadaY = 0.0
+}
+
+class Punto2 {
+  - coordenadaX = 1.0
+  - coordenadaY = 0.0
+}
+
+class Punto3 {
+  - coordenadaX = 0.0
+  - coordenadaY = 1.0
+}
+
+class Punto4 {
+  - coordenadaX = 1.0
+  - coordenadaY = 1.0
+}
+
+class Poligono1 {
+  - puntos: [Punto1, Punto2, Punto3, Punto4]
+}
+
+Punto "1..*"--*"1" Poligono 
+Punto1 --* Poligono1 
+Punto2 --* Poligono1 
+Punto3 --* Poligono1 
+Punto4 --* Poligono1 
+@enduml

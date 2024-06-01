@@ -1,0 +1,80 @@
+@startuml
+
+class Equipo {
+  + nombre: String
+  + registro: String
+}
+
+class Persona {
+  * telefono: String
+  * nombre: String
+  * direccion: String
+}
+
+class Jugador {
+  + numero: int
+  + posicion: String
+}
+class Capitan {
+}
+
+class Entrenador {
+  + nivelAcreditacion: String
+  + aniosExperiencia: int
+}
+
+class Juego {
+  + localidad: String
+  + puntuacion: int
+}
+
+Equipo *-- Jugador 
+Equipo "*" -- "1" Entrenador   
+Jugador --|> Persona
+Entrenador --|> Persona
+Jugador <|-- Capitan 
+Equipo "1 compite" -- "1..*" Juego
+
+@enduml
+
+@startuml
+
+object VoleyBall {
+  nombre: "dream team"
+  registro: ""31307714
+}
+
+object Petro{
+  telefono: "04123426152"
+  nombre: "Petro"
+  direccion: "Ocumare"
+  numero: 10
+  posicion: "delantero"
+}
+object Petro2{
+  telefono: "04123426154"
+  nombre: "Petro2"
+  direccion: "Yare"
+  numero: 11
+  posicion: "defensa"
+}
+
+class Petro3{
+  telefono: "04123426155"
+  nombre: "Petro3"
+  direccion: "Cua"
+  nivelAcreditacion: "suprema"
+  aniosExperiencia: 50
+}
+
+class Champions{
+  + localidad: "Venecia"
+  + puntuacion: 30
+}
+
+VoleyBall *-- Petro
+VoleyBall *-- Petro2
+VoleyBall "1" -- "1" Petro3
+VoleyBall "1 compite" -- "1..*" Champions
+
+@enduml

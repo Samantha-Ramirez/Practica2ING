@@ -1,0 +1,49 @@
+@startuml
+
+object x {
+  nombre: x
+}
+
+object y {
+  nombre: y
+}
+
+object dos {
+  valor: 2
+}
+
+object tres {
+  valor: 3
+}
+
+object expresion1 {
+  operador: "/"
+}
+
+object expresion2 {
+  operador: "+"
+}
+object expresion3 {
+  operador: "/"
+}
+object expresion4 {
+  operador: "+"
+}
+object final {
+  operador: "/"
+}
+
+
+expresion1 o-- dos
+expresion1 o-- y
+expresion2 o-- x
+expresion2 o-- expresion1
+expresion3 o-- x
+expresion3 o-- tres
+expresion4 o-- expresion3
+expresion4 o-- y
+final o-- expresion2
+final o-- expresion4
+
+
+@enduml
